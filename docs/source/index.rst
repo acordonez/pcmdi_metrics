@@ -25,7 +25,7 @@ Users of the current release (v1.2) will need to contact the PMP developers (pcm
    install
    install-using-anaconda
    using-the-package
-   metrics
+   metrics/index
    ipsl-corner
    pmp-using-cdp-guide
    pmpparser
