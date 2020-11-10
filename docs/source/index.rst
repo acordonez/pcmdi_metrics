@@ -18,7 +18,7 @@ The package expects model data to be `CF-compliant <http://cfconventions.org/>`_
 Users of the current release (v1.2) will need to contact the PMP developers (pcmdi-metrics@llnl.gov) to obtain supporting datasets and get started using the package.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
    self
