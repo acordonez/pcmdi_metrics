@@ -1,6 +1,6 @@
 # Jupyter notebook demos  
 
-These notebooks provide some basic examples for 3 PMP modules (mean climate, monsoon (wang), and diurnal cycle). They demonstrate how to use both parameter files and the command line to generate metrics. Users can also run the notebooks themselves.  
+These notebooks provide some basic examples for 3 PMP modules (mean climate, monsoon (wang), and diurnal cycle). They demonstrate how to use both parameter files and the command line to generate metrics. Parameter files are generated from the \*.py.in templates by running the Demo_0_download_data.ipynb notebook.
 
 ## Environment  
 PCMDI metrics package should be installed.  
@@ -15,7 +15,7 @@ From pcmdi_metrics, launch the jupyter notebook server:
 
 If the notebook is being run on a remote server, [set up an SSH tunnel](https://docs.anaconda.com/anaconda/user-guide/tasks/remote-jupyter-notebook/) to view it locally.  
 
-The jupyter notebook will be launched in your browser. From there, navigate to Demo_0_download_data.ipynb. This notebook must be run first because it populates the demo data and parameter files for the later demos. For more help with running notebooks, consult the [documentation](https://jupyter.readthedocs.io/en/latest/running.html#running).  
+The jupyter notebook will be launched in your browser. From there, navigate to Demo_0_download_data.ipynb. This notebook must be run first because it populates the demo data and parameter files for the later demos. The other notebooks can be run in any order. For more help with running notebooks, consult the [documentation](https://jupyter.readthedocs.io/en/latest/running.html#running).  
 
 ## Copying commands from notebooks  
 The mean climate notebook contains command line examples that can be copied from the notebook, customized, and run in the terminal. These commands are found in cells with a *%%bash* header.
