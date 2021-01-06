@@ -97,7 +97,8 @@ for output_type in ['graphics', 'diagnostic_results', 'metrics_results']:
 # =================================================
 # Generates list of command
 # -------------------------------------------------
-param_dir = '../../../sample_setups/pcmdi_parameter_files/variability_modes'
+#param_dir = '../../../sample_setups/pcmdi_parameter_files/variability_modes'
+param_dir = '../param'
 param_filename = 'myParam_'+mode+'_'+mip+'.py'
 
 if debug:
