@@ -12,23 +12,24 @@ case_id="v"`date +"%Y%m%d"`
 #case_id="v20191115"
 
 #mips='cmip3 cmip5 cmip6'
-#mips='cmip5 cmip6'
+mips='cmip5 cmip6'
 #mips='cmip5'
-mips='cmip6'
+#mips='cmip6'
 #mips='cmip3'
 
 #exps='20c3m amip'
 #exps='20c3m'
-exps='historical amip'
-#exps='historical'
+#exps='historical amip'
+exps='historical'
 
-modes='all'
+modes='NAM'
 
 modnames='all'
-
+#modnames="ACCESS1-0  ACCESS1-3 BCC-CSM1-1 BCC-CSM1-1-M BNU-ESM"
 realization='all'
 
-param_dir='../../../sample_setups/pcmdi_parameter_files/variability_modes'
+#param_dir='../../../sample_setups/pcmdi_parameter_files/variability_modes'
+param_dir='../param'
 
 for mip in $mips; do
     #if [ $mip == 'cmip5' ]; then
