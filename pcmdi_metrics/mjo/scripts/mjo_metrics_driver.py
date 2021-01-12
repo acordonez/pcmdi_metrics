@@ -87,10 +87,6 @@ nc_out = param.nc_out  # Record NetCDF output
 plot = param.plot  # Generate plots
 includeOBS = param.includeOBS  # Loop run for OBS or not
 print("includeOBS:", includeOBS)
-cmec = False
-if hasattr(param, 'cmec'):
-    cmec = param.cmec  # Generate CMEC compliant json
-print('CMEC:' + str(cmec))
 
 # Path to reference data
 reference_data_name = param.reference_data_name
@@ -269,7 +265,7 @@ for model in models:
                 json_filename_tmp = '_'.join([
                     'mjo_stat',
                     mip, exp, fq, realm, model, run, str(msyear)+'-'+str(meyear)])
-                mjo_metrics_to_json(outdir, json_filename_tmp, result_dict, model=model, run=run, cmec_flag=cmec)
+                mjo_metrics_to_json(outdir, json_filename_tmp, result_dict, model=model, run=run)
                 # =================================================
                 # Write dictionary to json file
                 # (let the json keep overwritten in model loop)
@@ -282,8 +278,7 @@ for model in models:
                                                "metric"],
                                sort_keys=True,
                                indent=4,
-                               separators=(',', ': '),
-                               cmec_flag=cmec)
+                               separators=(',', ': '))
                 print('Done')
             except Exception as err:
                 if debug:
