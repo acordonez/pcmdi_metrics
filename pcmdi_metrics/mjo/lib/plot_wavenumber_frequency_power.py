@@ -1,5 +1,6 @@
 import cdms2
 import copy
+import matplotlib.cm
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import os
