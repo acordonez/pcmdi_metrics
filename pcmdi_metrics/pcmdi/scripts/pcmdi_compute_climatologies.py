@@ -12,7 +12,7 @@ cdms2.setNetcdfDeflateLevelFlag(0)
 
 
 def clim_calc(var, infile, outfile, outdir, outfilename, start, end):
-	import cdms2
+    import cdms2
     import cdutil
     import cdtime
     import datetime
@@ -48,7 +48,7 @@ def clim_calc(var, infile, outfile, outdir, outfilename, start, end):
     seperate_clims = 'y'
 	
 # DEFAULT CLIM - BASED ON ENTIRE TIME SERIES
-    if start == end is None:
+    if (start == end) is None:
     	d = f(var)
     	t = d.getTime()
     	c = t.asComponentTime()
@@ -88,48 +88,48 @@ def clim_calc(var, infile, outfile, outdir, outfilename, start, end):
 
     for s in ['AC', 'DJF', 'MAM', 'JJA', 'SON']:
 
-		addf = '.' + start_yr_str + start_mo_str + '-' + end_yr_str + end_mo_str + '.' + s + '.' + ver + '.nc'
+        addf = '.' + start_yr_str + start_mo_str + '-' + end_yr_str + end_mo_str + '.' + s + '.' + ver + '.nc'
 
-#   if seperate_clims == 'y':
+        if seperate_clims == 'y':
  
-     	print('outfd is ', outfd)
-     	out = outfd
-     	out = out.replace('.xml', addf)
-     	out = out.replace('.nc', addf)
-     	print('out is ', out)
+            print('outfd is ', outfd)
+            out = outfd
+            out = out.replace('.xml', addf)
+            out = out.replace('.nc', addf)
+            print('out is ', out)
 
-     if seperate_clims == 'n':  
-     	out = outfd.replace('climo.nc', s+'.nc')
-     if s == 'AC': 
-     	do = d_ac
-     if s == 'DJF': 
-     	do = d_djf
-     if s == 'MAM': 
-     	do = d_mam
-     if s == 'JJA': 
-     	do = d_jja
-     if s == 'SON': 
-     	do = d_son
-     do.id = var
+        if seperate_clims == 'n':  
+            out = outfd.replace('climo.nc', s+'.nc')
+        if s == 'AC': 
+            do = d_ac
+        if s == 'DJF': 
+            do = d_djf
+        if s == 'MAM': 
+            do = d_mam
+        if s == 'JJA': 
+            do = d_jja
+        if s == 'SON': 
+     	    do = d_son
+        do.id = var
 
-### MKDIRS AS NEEDED
-     lst = outfd.split('/')
-     s = '/'
-     for ll in range(len(lst)):
-     	d = s.join(lst[0:ll])
-      	try:
-       		os.mkdir(d)
-      	except:
-       	pass
+        ### MKDIRS AS NEEDED
+        lst = outfd.split('/')
+        s = '/'
+        for ll in range(len(lst)):
+            d = s.join(lst[0:ll])
+            try:
+       	        os.mkdir(d)
+            except:
+       	        pass
 
-     g = cdms2.open(out, 'w+')
-     g.write(do)
+        g = cdms2.open(out, 'w+')
+        g.write(do)
  
-     for att in atts:
-     	setattr(g,att,f.getglobal(att))
-     g.close()
-     	print(do.shape, ' ', d_ac.shape, ' ', out)
-    f.close()
+        for att in atts:
+            setattr(g,att,f.getglobal(att))
+        g.close()
+        print(do.shape, ' ', d_ac.shape, ' ', out)
+        f.close()
 
 #######################################################################
 
