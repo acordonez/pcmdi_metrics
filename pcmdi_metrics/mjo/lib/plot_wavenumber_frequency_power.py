@@ -1,4 +1,5 @@
 import cdms2
+import copy
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import os
@@ -27,7 +28,7 @@ def plot_power(d, title, fout, ewr=None):
         x, y, d,
         levels=[0.002, 0.004, 0.006, 0.008, 0.01, 0.012, 0.014, 0.016,
                 0.018, 0.020, 0.022, 0.024, 0.026, 0.028, 0.03, 0.032],
-        cmap=copy.copy(mpl.cm.get_cmap("jet")),
+        cmap=copy.copy(matplotlib.cm.get_cmap("jet")),
         extend='both')
     cs.cmap.set_under('w')
     # y-axis range
