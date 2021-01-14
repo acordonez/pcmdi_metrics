@@ -11,7 +11,7 @@ def find_latest(path):
 # =================================================
 # Background Information
 # -------------------------------------------------
-mip = 'cmip5'
+mip = 'cmip6'
 exp = 'historical'
 frequency = 'da'
 realm = 'atm'
@@ -24,13 +24,15 @@ debug = False
 
 nc_out = True
 plot = True  # Create map graphics
-update_json = False
+update_json = True
+cmec = True
 
 # =================================================
 # Observation
 # -------------------------------------------------
+includeOBS = True
 reference_data_name = 'GPCP-1-3'
-reference_data_path = '/p/user_pub/PCMDIobs/PCMDIobs2/atmos/day/pr/GPCP-1-3/gn/v20200402/pr_day_GPCP-1-3_BE_gn_v20200402_19961002-20170101.nc'  # noqa
+reference_data_path = '/p/user_pub/PCMDIobs/PCMDIobs2/atmos/day/pr/GPCP-1-3/gn/v20200924/pr_day_GPCP-1-3_BE_gn_v20200924_19961002-20170101.nc'  # noqa
 
 varOBS = 'pr'
 ObsUnitsAdjust = (True, 'multiply', 86400.0, 'mm d-1')  # kg m-2 s-1 to mm day-1
@@ -53,10 +55,12 @@ modpath = os.path.join(
     '%(mip)/%(exp)/%(realm)/day/%(variable)',
     '%(mip).%(exp).%(model).%(realization).day.%(variable).xml')
 
-modnames = ['ACCESS1-0']
+# modnames = ['ACCESS1-0']
+#modnames = ['ACCESS-CM2','CESM2']
+modnames = ['MIROC6']
 # modnames = 'all'
 
-realization = 'r1i1p1'
+realization = 'r1i1p1f1'
 # realization = '*'
 
 varModel = 'pr'
@@ -70,10 +74,10 @@ meyear = 2004
 # Output
 # -------------------------------------------------
 case_id = "{:v%Y%m%d}".format(datetime.datetime.now())
-pmprdir = '/p/user_pub/pmp/pmp_results/pmp_v1.1.2'
+pmprdir = '/export/ordonez4/pmp_results/pmp_v1.1.2'
 
 if debug:
-    pmprdir = '/work/lee1043/imsi/result_test'
+    pmprdir = '/export/ordonez4/result_test'
 
 results_dir = os.path.join(
     pmprdir,

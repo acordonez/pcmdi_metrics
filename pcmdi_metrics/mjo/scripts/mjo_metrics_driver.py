@@ -282,9 +282,11 @@ for model in models:
                                                "metric"],
                                sort_keys=True,
                                indent=4,
-                               separators=(',', ': '),
-                               cmec_flag=cmec)
-                print('Done')
+                               separators=(',', ': '))
+                    if cmec:
+                        print("Writing CMEC file")
+                        JSON.write_cmec(indent=4, separators=(',', ': '))
+                    print('Done')
             except Exception as err:
                 if debug:
                     raise
