@@ -46,7 +46,8 @@ pth = os.path.dirname(__file__)
 test_data_path = 'demo_data/example_data/atm/mo/rlut/ac/'
 # ROOT PATH FOR OBSERVATIONS
 # Note that atm/mo/%(variable)/ac will be added to this
-reference_data_path = 'demo_data/pmpobs_v1.0'
+reference_data_path = 'demo_data/PCMDIobs2_clims'
+custom_observations = 'pcmdiobs2_clims_byVar_catalogue_v20201228.json'
 
 # DIRECTORY WHERE TO PUT RESULTS
 metrics_output_path = os.path.join(
