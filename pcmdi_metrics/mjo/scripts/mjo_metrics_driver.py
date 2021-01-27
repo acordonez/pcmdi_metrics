@@ -279,12 +279,14 @@ for model in models:
                                sort_keys=True,
                                indent=4,
                                separators=(',', ': '))
+                    if cmec:
+                        JSON.write_cmec(indent=4, separators=(',', ': '))
                 print('Done')
             except Exception as err:
                 if debug:
                     raise
                 else:
-                    print('warning: faild for ', model, run, err)
+                    print('warning: failed for ', model, run, err)
                     pass
         # --- Realization loop end
 
@@ -292,7 +294,7 @@ for model in models:
         if debug:
             raise
         else:
-            print('warning: faild for ', model, err)
+            print('warning: failed for ', model, err)
             pass
 # --- Model loop end
 
