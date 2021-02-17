@@ -1,0 +1,37 @@
+import os
+
+#
+#  OPTIONS ARE SET BY USER IN THIS FILE AS INDICATED BELOW BY:
+#
+#
+
+# CASE NAME
+case_id = 'basic_sperber'
+
+# LIST OF MODEL VERSIONS TO BE TESTED
+modnames = ['ACCESS1-0']
+
+# MODELS CLIMATOLOGIES
+modpath = '/Users/ordonez4/Metrics/demo_data/pr_day_%(model)_historical_r1i1p1_20000101-20051231.nc'
+modpath_lf = '/Users/ordonez4/Metrics/demo_data/sftlf_fx_ACCESS1-0_historical_r0i0p0.nc'
+mip = 'cmip5'
+exp = 'historical'
+frequency = 'mon'
+realm = 'atm'
+ModUnitsAdjust = (True, 'multiply', 86400.0) 
+msyear = 1981
+meyear = 2005
+
+# OBSERVATIONS
+reference_data_path = '/Users/ordonez4/Metrics/demo_data/pr_day_GPCP-1-3_BE_gn_v20200924_19961002-20170101.nc'
+reference_data_lf_path = '/Users/ordonez4/Metrics/demo_data/NCL_LandSeaMask_rewritten.nc'
+ObsUnitsAdjust = (True, 'multiply', 86400.0)
+osyear = 1979
+oeyear = 2019
+includeOBS = True
+
+# RESULTS
+results_dir = '$OUTPUT_DIR$/monsoon_sperber'
+nc_out = False  # Write output in NetCDF
+plot = True  # Create map graphics
+update_json = False
