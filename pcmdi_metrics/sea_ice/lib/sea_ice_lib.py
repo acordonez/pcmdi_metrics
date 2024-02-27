@@ -252,6 +252,19 @@ def process_by_region(ds, ds_var, ds_area):
     return clims, means
 
 
+def area_by_region(ds_area, area_var):
+    regions_list = ["arctic", "antarctic", "ca", "na", "np", "sa", "sp", "io"]
+    areas = []
+    for region in regions_list:
+        xvar = find_lon(ds)
+        yvar = find_lat(ds)
+        data = choose_region(region, ds, ds_var, xvar, yvar)
+        total_area = data.sum((xvar, yvar)).data
+        areas[region] = total_area
+        del data
+    return areas
+
+
 def find_lon(ds):
     for key in ds.coords:
         if key in ["lon", "longitude"]:
